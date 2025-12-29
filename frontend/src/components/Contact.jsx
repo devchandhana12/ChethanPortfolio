@@ -30,9 +30,9 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: personalInfo.github, label: 'GitHub' },
-    { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
-    { icon: Twitter, href: personalInfo.twitter, label: 'Twitter' }
+    { icon: Github, href: `https://${personalInfo.github}`, label: 'GitHub' },
+    { icon: Linkedin, href: `https://${personalInfo.linkedin}`, label: 'LinkedIn' },
+    { icon: Twitter, href: `https://${personalInfo.twitter}`, label: 'Twitter' }
   ];
 
   return (
