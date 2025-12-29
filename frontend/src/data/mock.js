@@ -134,30 +134,37 @@ export const experience = [
   {
     id: 1,
     year: "2023 - Present",
-    title: "Senior Full Stack AI Engineer",
-    company: "Tech Innovations Inc",
-    description: "Expanding into full-stack development and AI engineering. Built 2 production AI projects integrating machine learning models with React frontends. Leading the architecture of intelligent applications combining modern web technologies with ML capabilities."
+    title: "Sr. Software Engineer",
+    company: "Ascent HR Technologies Pvt Ltd",
+    description: "Leading frontend development initiatives with React and React Native. Expanding into full-stack development and AI engineering, building intelligent applications that combine modern web technologies with machine learning capabilities."
   },
   {
     id: 2,
-    year: "2020 - 2023",
-    title: "Senior Frontend Engineer",
-    company: "Digital Solutions Ltd",
-    description: "Specialized in React and React Native development. Led a team of 5 developers building complex enterprise applications. Architected and delivered 15+ production applications with focus on performance optimization and user experience."
+    year: "2023",
+    title: "Sr. Software Engineer",
+    company: "Antino Labs",
+    description: "Advanced to senior role, architecting scalable frontend solutions. Mentored junior developers and established best practices for React and React Native development across the team."
   },
   {
     id: 3,
-    year: "2019 - 2020",
-    title: "Frontend Developer",
-    company: "StartupHub",
-    description: "Focused on building responsive web and mobile applications using React and React Native. Contributed to the development of 10+ projects from concept to deployment."
+    year: "2022 - 2023",
+    title: "Software Engineer",
+    company: "Affluent Global Solutions Pvt Ltd",
+    description: "Continued specializing in React and React Native, building complex enterprise applications. Delivered multiple high-impact projects with focus on performance optimization and user experience."
   },
   {
     id: 4,
-    year: "2018 - 2019",
-    title: "Junior Frontend Developer",
-    company: "WebCraft Agency",
-    description: "Started my career building user interfaces with React. Learned the fundamentals of modern web development, component architecture, and state management."
+    year: "2022",
+    title: "Frontend Engineer / Software Engineer",
+    company: "SRS Infoway",
+    description: "Enhanced frontend development skills, working extensively with React ecosystem. Built responsive and performant web applications with modern JavaScript frameworks."
+  },
+  {
+    id: 5,
+    year: "2019 - 2022",
+    title: "Asst. Software Developer",
+    company: "UV Infra Tech Systems Pvt Ltd",
+    description: "Started my professional journey as a frontend developer. Learned React fundamentals, built user interfaces, and developed a strong foundation in web development and software engineering principles."
   }
 ];
 
