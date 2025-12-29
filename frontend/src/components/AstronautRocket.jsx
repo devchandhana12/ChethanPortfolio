@@ -1,18 +1,23 @@
 import React from 'react';
 
-const AstronautRocket = ({ position = 'top-right', delay = 0 }) => {
-  const positions = {
-    'top-right': 'top-32 right-20',
-    'bottom-left': 'bottom-32 left-20',
-    'middle-right': 'top-1/2 right-10',
-    'middle-left': 'top-1/2 left-10'
+const AstronautRocket = ({ startPosition = 'left', delay = 0, duration = 20 }) => {
+  // Different starting positions
+  const startPositions = {
+    'left-top': { top: '10%', left: '-100px' },
+    'left-middle': { top: '40%', left: '-100px' },
+    'left-bottom': { top: '70%', left: '-100px' },
+    'right-top': { top: '20%', right: '-100px' },
+    'right-bottom': { top: '60%', right: '-100px' }
   };
+
+  const position = startPositions[startPosition] || startPositions['left-top'];
 
   return (
     <div 
-      className={`fixed ${positions[position]} pointer-events-none z-5 hidden lg:block`}
+      className="fixed pointer-events-none z-5 hidden lg:block"
       style={{
-        animation: `astronautFloat 25s ease-in-out infinite`,
+        ...position,
+        animation: `flyAcross${startPosition.includes('right') ? 'Left' : 'Right'} ${duration}s linear infinite`,
         animationDelay: `${delay}s`
       }}
     >
@@ -21,16 +26,16 @@ const AstronautRocket = ({ position = 'top-right', delay = 0 }) => {
         <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Rocket Body */}
           <defs>
-            <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id={`rocketGradient-${delay}`} x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#7c3aed" />
               <stop offset="50%" stopColor="#6d28d9" />
               <stop offset="100%" stopColor="#5b21b6" />
             </linearGradient>
-            <linearGradient id="windowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={`windowGradient-${delay}`} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#60a5fa" />
               <stop offset="100%" stopColor="#3b82f6" />
             </linearGradient>
-            <filter id="glow">
+            <filter id={`glow-${delay}`}>
               <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
@@ -40,13 +45,13 @@ const AstronautRocket = ({ position = 'top-right', delay = 0 }) => {
           </defs>
           
           {/* Rocket Nose Cone */}
-          <path d="M30 5 L40 25 L20 25 Z" fill="url(#rocketGradient)" stroke="#9333ea" strokeWidth="1"/>
+          <path d="M30 5 L40 25 L20 25 Z" fill={`url(#rocketGradient-${delay})`} stroke="#9333ea" strokeWidth="1"/>
           
           {/* Main Body */}
-          <rect x="20" y="25" width="20" height="40" fill="url(#rocketGradient)" stroke="#9333ea" strokeWidth="1" rx="2"/>
+          <rect x="20" y="25" width="20" height="40" fill={`url(#rocketGradient-${delay})`} stroke="#9333ea" strokeWidth="1" rx="2"/>
           
           {/* Window with Astronaut */}
-          <circle cx="30" cy="40" r="8" fill="url(#windowGradient)" stroke="#7c3aed" strokeWidth="2" filter="url(#glow)"/>
+          <circle cx="30" cy="40" r="8" fill={`url(#windowGradient-${delay})`} stroke="#7c3aed" strokeWidth="2" filter={`url(#glow-${delay})`}/>
           <circle cx="28" cy="38" r="2" fill="#1e293b"/>
           <circle cx="32" cy="38" r="2" fill="#1e293b"/>
           <path d="M26 42 Q30 45 34 42" stroke="#1e293b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
@@ -64,13 +69,13 @@ const AstronautRocket = ({ position = 'top-right', delay = 0 }) => {
           
           {/* Exhaust flames */}
           <g className="flame-animation">
-            <ellipse cx="30" cy="75" rx="8" ry="15" fill="url(#flameGradient)" opacity="0.9"/>
+            <ellipse cx="30" cy="75" rx="8" ry="15" fill={`url(#flameGradient-${delay})`} opacity="0.9"/>
             <ellipse cx="30" cy="78" rx="6" ry="12" fill="#f59e0b" opacity="0.8"/>
             <ellipse cx="30" cy="80" rx="4" ry="8" fill="#fbbf24" opacity="0.7"/>
           </g>
           
           <defs>
-            <linearGradient id="flameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id={`flameGradient-${delay}`} x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ef4444" />
               <stop offset="50%" stopColor="#f97316" />
               <stop offset="100%" stopColor="#fbbf24" />
