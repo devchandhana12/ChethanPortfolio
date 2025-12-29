@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { personalInfo } from '../data/mock';
 import { Send, Mail, Github, Linkedin, Twitter, MapPin } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Contact = () => {
   const { toast } = useToast();
@@ -11,6 +14,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,14 +23,29 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission
-    toast({
-      title: "Message Sent! 🚀",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setLoading(true);
+    
+    try {
+      const response = await axios.post(`${BACKEND_URL}/api/contact`, formData);
+      
+      toast({
+        title: "Message Sent! 🚀",
+        description: response.data.message,
+      });
+      
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const socialLinks = [
