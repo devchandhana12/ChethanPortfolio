@@ -21,7 +21,7 @@ const AstronautRocket = ({ startPosition = 'left', delay = 0, duration = 20 }) =
         animationDelay: `${delay}s`
       }}
     >
-      <div className="relative transform scale-150">
+      <div className="relative transform scale-50">
         {/* Main Rocket Body */}
         <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Rocket Body */}
