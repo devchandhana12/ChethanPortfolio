@@ -188,10 +188,20 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 hover:scale-105 flex items-center justify-center gap-2 font-semibold"
+                disabled={loading}
+                className="w-full px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 hover:scale-105 flex items-center justify-center gap-2 font-semibold disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                <Send className="w-5 h-5" />
-                Send Message
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </>
+                )}
               </button>
             </form>
           </div>
