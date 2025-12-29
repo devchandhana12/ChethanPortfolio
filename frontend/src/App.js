@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import SpaceBackground from "./components/SpaceBackground";
 import ShootingStar from "./components/ShootingStar";
+import AstronautRocket from "./components/AstronautRocket";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -19,6 +20,10 @@ function App() {
       
       {/* Shooting stars */}
       <ShootingStar />
+      
+      {/* Astronaut riding rocket */}
+      <AstronautRocket position="top-right" delay={0} />
+      <AstronautRocket position="middle-left" delay={8} />
       
       {/* Content */}
       <div className="relative z-10">
