@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import SpaceBackground from "./components/SpaceBackground";
+import ShootingStar from "./components/ShootingStar";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -15,6 +16,9 @@ function App() {
     <div className="App relative min-h-screen bg-black text-white overflow-x-hidden">
       {/* Animated space background */}
       <SpaceBackground />
+      
+      {/* Shooting stars */}
+      <ShootingStar />
       
       {/* Content */}
       <div className="relative z-10">
