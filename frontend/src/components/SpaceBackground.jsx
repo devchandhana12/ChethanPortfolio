@@ -51,7 +51,7 @@ const SpaceBackground = () => {
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(168, 85, 247, ${star.opacity})`;
+        ctx.fillStyle = `rgba(109, 40, 217, ${star.opacity})`;
         ctx.fill();
 
         // Twinkling effect
