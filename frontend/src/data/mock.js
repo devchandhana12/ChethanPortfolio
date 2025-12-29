@@ -4,12 +4,16 @@ export const personalInfo = {
   name: "Chethan",
   title: "Full Stack AI Engineer",
   tagline: "Building intelligent solutions across the stack",
-  bio: "Passionate full-stack AI engineer specializing in building scalable AI-powered applications. Expert in React, Python, and machine learning with a focus on creating seamless user experiences backed by intelligent systems.",
+  bio: "Senior engineer with 6 years of experience, specializing in React and React Native. Started my journey as a frontend developer, building beautiful and performant user interfaces. These days, I'm exploring the exciting world of full-stack development and AI engineering, combining my frontend expertise with backend technologies and machine learning to create intelligent, end-to-end solutions.",
+  story: "My journey began 6 years ago as a frontend developer, where I fell in love with React and React Native. Over the years, I've built countless applications, from complex enterprise dashboards to smooth mobile experiences. Recently, I've expanded into full-stack development and AI engineering, completing 2 exciting AI projects and eager to build many more. I believe in writing clean code, creating seamless user experiences, and constantly learning new technologies.",
   location: "Available Worldwide",
   email: "chethan@example.com",
   github: "github.com/chethan",
   linkedin: "linkedin.com/in/chethan",
-  twitter: "twitter.com/chethan"
+  twitter: "twitter.com/chethan",
+  yearsOfExperience: 6,
+  projectsCompleted: "50+",
+  aiProjectsCompleted: 2
 };
 
 export const skills = [
@@ -129,31 +133,31 @@ export const projects = [
 export const experience = [
   {
     id: 1,
-    year: "2024 - Present",
-    title: "Senior AI Engineer",
-    company: "TechCorp AI",
-    description: "Leading AI integration projects, developing scalable ML pipelines, and mentoring junior developers in machine learning best practices."
+    year: "2023 - Present",
+    title: "Senior Full Stack AI Engineer",
+    company: "Tech Innovations Inc",
+    description: "Expanding into full-stack development and AI engineering. Built 2 production AI projects integrating machine learning models with React frontends. Leading the architecture of intelligent applications combining modern web technologies with ML capabilities."
   },
   {
     id: 2,
-    year: "2022 - 2024",
-    title: "Full Stack Developer",
-    company: "Innovation Labs",
-    description: "Built end-to-end web applications using React and FastAPI. Implemented real-time features and optimized application performance."
+    year: "2020 - 2023",
+    title: "Senior Frontend Engineer",
+    company: "Digital Solutions Ltd",
+    description: "Specialized in React and React Native development. Led a team of 5 developers building complex enterprise applications. Architected and delivered 15+ production applications with focus on performance optimization and user experience."
   },
   {
     id: 3,
-    year: "2020 - 2022",
-    title: "Mobile Developer",
-    company: "AppVentures",
-    description: "Developed cross-platform mobile applications with React Native. Integrated Firebase services and third-party APIs."
+    year: "2019 - 2020",
+    title: "Frontend Developer",
+    company: "StartupHub",
+    description: "Focused on building responsive web and mobile applications using React and React Native. Contributed to the development of 10+ projects from concept to deployment."
   },
   {
     id: 4,
-    year: "2019 - 2020",
-    title: "Junior Developer",
-    company: "StartupHub",
-    description: "Started career building responsive web interfaces and learning full-stack development fundamentals."
+    year: "2018 - 2019",
+    title: "Junior Frontend Developer",
+    company: "WebCraft Agency",
+    description: "Started my career building user interfaces with React. Learned the fundamentals of modern web development, component architecture, and state management."
   }
 ];
 
