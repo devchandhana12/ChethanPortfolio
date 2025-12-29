@@ -68,9 +68,9 @@ const SpaceBackground = () => {
       particles.forEach(particle => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(192, 132, 252, ${particle.opacity})`;
+        ctx.fillStyle = `rgba(124, 58, 237, ${particle.opacity})`;
         ctx.shadowBlur = 10;
-        ctx.shadowColor = 'rgba(168, 85, 247, 0.8)';
+        ctx.shadowColor = 'rgba(109, 40, 217, 0.9)';
         ctx.fill();
         ctx.shadowBlur = 0;
 
