@@ -86,7 +86,7 @@ const Contact = () => {
                 {socialLinks.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
-                    href={`https://${href}`}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-purple-500/20 hover:bg-purple-500/30 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50 group"
