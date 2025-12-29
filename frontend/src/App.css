@@ -93,6 +93,83 @@
     animation: float 6s ease-in-out infinite;
 }
 
+/* Slow float animation */
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float-slow {
+    animation: floatSlow 3s ease-in-out infinite;
+}
+
+/* Rocket float animation */
+@keyframes rocketFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-30px) translateX(-15px);
+    }
+    50% {
+        transform: translateY(-60px) translateX(0);
+    }
+    75% {
+        transform: translateY(-30px) translateX(15px);
+    }
+}
+
+/* Shooting star animation */
+@keyframes shoot {
+    0% {
+        transform: translateX(0) translateY(0) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(300px) translateY(300px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* Flicker animation for rocket exhaust */
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scaleY(1.2);
+    }
+}
+
+/* Particle animations */
+@keyframes particle1 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-10px, 20px);
+        opacity: 0;
+    }
+}
+
+@keyframes particle2 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(10px, 20px);
+        opacity: 0;
+    }
+}
+
 /* Rotate animation */
 @keyframes rotate {
     from {
@@ -101,6 +178,20 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Slow spin */
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spinSlow 20s linear infinite;
 }
 
 /* Glow animation */
@@ -144,6 +235,52 @@
     animation: gradient 3s ease infinite;
 }
 
+/* Gradient border animation */
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient-border {
+    background-size: 200% 200%;
+    animation: gradientBorder 3s ease infinite;
+}
+
+/* Shine animation */
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+.animate-shine {
+    animation: shine 2s ease-in-out infinite;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
 /* Scroll animation */
 @keyframes scroll {
     0% {
@@ -165,9 +302,11 @@
 @keyframes expandWidth {
     from {
         width: 0%;
+        left: 0%;
     }
     to {
         width: var(--final-width);
+        left: var(--final-left, 0%);
     }
 }
 
