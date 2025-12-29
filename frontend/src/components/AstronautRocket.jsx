@@ -16,87 +16,98 @@ const AstronautRocket = ({ position = 'top-right', delay = 0 }) => {
         animationDelay: `${delay}s`
       }}
     >
-      <div className="relative">
-        {/* Rocket body */}
-        <div className="relative">
-          {/* Main rocket */}
-          <div className="w-20 h-32 relative">
-            {/* Rocket nose */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-r-[20px] border-b-[30px] border-l-transparent border-r-transparent border-b-purple-700 z-20"></div>
-            
-            {/* Rocket body */}
-            <div className="absolute top-[30px] left-1/2 -translate-x-1/2 w-10 h-20 bg-gradient-to-b from-purple-700 via-purple-800 to-purple-900 rounded-t-lg shadow-2xl shadow-purple-700/50 z-10">
-              {/* Window */}
-              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-cyan-300 to-blue-500 rounded-full border-2 border-purple-600 shadow-inner">
-                {/* Astronaut face */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-xs">😊</div>
-                </div>
-              </div>
-              
-              {/* Rocket details */}
-              <div className="absolute bottom-2 left-1 right-1 h-1 bg-purple-500 rounded-full"></div>
-              <div className="absolute bottom-4 left-1 right-1 h-1 bg-purple-500 rounded-full"></div>
-            </div>
-            
-            {/* Rocket fins */}
-            <div className="absolute bottom-0 left-0 w-0 h-0 border-t-[15px] border-r-[8px] border-t-purple-800 border-r-transparent z-0"></div>
-            <div className="absolute bottom-0 right-0 w-0 h-0 border-t-[15px] border-l-[8px] border-t-purple-800 border-l-transparent z-0"></div>
-            
-            {/* Exhaust flame */}
-            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 z-0">
-              <div 
-                className="w-8 h-12 bg-gradient-to-b from-orange-500 via-red-500 to-transparent rounded-full"
-                style={{
-                  animation: 'flameFlicker 0.2s ease-in-out infinite',
-                  filter: 'blur(3px)'
-                }}
-              ></div>
-              <div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-10 bg-gradient-to-b from-yellow-400 via-orange-400 to-transparent rounded-full"
-                style={{
-                  animation: 'flameFlicker 0.15s ease-in-out infinite',
-                  animationDelay: '0.1s',
-                  filter: 'blur(2px)'
-                }}
-              ></div>
-            </div>
-            
-            {/* Sparkles */}
-            <div 
-              className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-1 h-1 bg-yellow-300 rounded-full"
-              style={{ animation: 'sparkle1 1s ease-out infinite' }}
-            ></div>
-            <div 
-              className="absolute -bottom-16 left-1/4 w-1 h-1 bg-orange-300 rounded-full"
-              style={{ animation: 'sparkle2 1.2s ease-out infinite' }}
-            ></div>
-            <div 
-              className="absolute -bottom-18 right-1/4 w-1 h-1 bg-red-300 rounded-full"
-              style={{ animation: 'sparkle3 0.9s ease-out infinite' }}
-            ></div>
-          </div>
+      <div className="relative transform scale-150">
+        {/* Main Rocket Body */}
+        <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Rocket Body */}
+          <defs>
+            <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#7c3aed" />
+              <stop offset="50%" stopColor="#6d28d9" />
+              <stop offset="100%" stopColor="#5b21b6" />
+            </linearGradient>
+            <linearGradient id="windowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#60a5fa" />
+              <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          
+          {/* Rocket Nose Cone */}
+          <path d="M30 5 L40 25 L20 25 Z" fill="url(#rocketGradient)" stroke="#9333ea" strokeWidth="1"/>
+          
+          {/* Main Body */}
+          <rect x="20" y="25" width="20" height="40" fill="url(#rocketGradient)" stroke="#9333ea" strokeWidth="1" rx="2"/>
+          
+          {/* Window with Astronaut */}
+          <circle cx="30" cy="40" r="8" fill="url(#windowGradient)" stroke="#7c3aed" strokeWidth="2" filter="url(#glow)"/>
+          <circle cx="28" cy="38" r="2" fill="#1e293b"/>
+          <circle cx="32" cy="38" r="2" fill="#1e293b"/>
+          <path d="M26 42 Q30 45 34 42" stroke="#1e293b" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+          
+          {/* Body Details */}
+          <rect x="22" y="50" width="16" height="2" fill="#a855f7" opacity="0.6"/>
+          <rect x="22" y="55" width="16" height="2" fill="#a855f7" opacity="0.6"/>
+          
+          {/* Fins */}
+          <path d="M20 60 L15 75 L20 70 Z" fill="#6d28d9" stroke="#9333ea" strokeWidth="1"/>
+          <path d="M40 60 L45 75 L40 70 Z" fill="#6d28d9" stroke="#9333ea" strokeWidth="1"/>
+          
+          {/* Bottom thruster */}
+          <rect x="24" y="65" width="12" height="5" fill="#5b21b6" stroke="#9333ea" strokeWidth="1"/>
+          
+          {/* Exhaust flames */}
+          <g className="flame-animation">
+            <ellipse cx="30" cy="75" rx="8" ry="15" fill="url(#flameGradient)" opacity="0.9"/>
+            <ellipse cx="30" cy="78" rx="6" ry="12" fill="#f59e0b" opacity="0.8"/>
+            <ellipse cx="30" cy="80" rx="4" ry="8" fill="#fbbf24" opacity="0.7"/>
+          </g>
+          
+          <defs>
+            <linearGradient id="flameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#ef4444" />
+              <stop offset="50%" stopColor="#f97316" />
+              <stop offset="100%" stopColor="#fbbf24" />
+            </linearGradient>
+          </defs>
+        </svg>
 
-          {/* Trailing smoke particles */}
-          <div className="absolute -bottom-24 left-1/2 -translate-x-1/2">
-            <div 
-              className="w-3 h-3 bg-gray-400/30 rounded-full"
-              style={{ animation: 'smoke1 2s ease-out infinite' }}
-            ></div>
-          </div>
-          <div className="absolute -bottom-32 left-1/3">
-            <div 
-              className="w-2 h-2 bg-gray-400/20 rounded-full"
-              style={{ animation: 'smoke2 2.5s ease-out infinite' }}
-            ></div>
-          </div>
+        {/* Sparkle particles around rocket */}
+        <div className="absolute -top-4 -left-6 text-yellow-400 text-sm animate-pulse">✨</div>
+        <div className="absolute -top-6 -right-4 text-yellow-300 text-sm animate-pulse" style={{ animationDelay: '0.5s' }}>⭐</div>
+        <div className="absolute top-10 -right-8 text-yellow-400 text-xs animate-pulse" style={{ animationDelay: '1s' }}>✨</div>
+        <div className="absolute top-20 -left-6 text-yellow-300 text-xs animate-pulse" style={{ animationDelay: '1.5s' }}>⭐</div>
+
+        {/* Smoke trail */}
+        <div className="absolute top-24 left-1/2 -translate-x-1/2">
+          <div 
+            className="w-4 h-4 bg-gray-400/20 rounded-full blur-sm"
+            style={{ animation: 'smoke1 3s ease-out infinite' }}
+          ></div>
         </div>
-
-        {/* Stars around rocket */}
-        <div className="absolute -top-5 -left-10 text-yellow-300 text-xs animate-pulse">✨</div>
-        <div className="absolute -top-8 right-5 text-yellow-300 text-xs animate-pulse" style={{ animationDelay: '0.5s' }}>⭐</div>
-        <div className="absolute top-1/2 -right-12 text-yellow-300 text-xs animate-pulse" style={{ animationDelay: '1s' }}>✨</div>
+        <div className="absolute top-28 left-1/3">
+          <div 
+            className="w-3 h-3 bg-gray-400/15 rounded-full blur-sm"
+            style={{ animation: 'smoke2 3.5s ease-out infinite' }}
+          ></div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes flameFlicker {
+          0%, 100% { transform: scaleY(1); opacity: 0.9; }
+          50% { transform: scaleY(1.2); opacity: 1; }
+        }
+        .flame-animation {
+          animation: flameFlicker 0.15s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
