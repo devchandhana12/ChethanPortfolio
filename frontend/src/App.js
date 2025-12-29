@@ -21,12 +21,9 @@ function App() {
       {/* Shooting stars */}
       <ShootingStar />
       
-      {/* Flying astronaut rockets - 5 rockets crossing the screen */}
-      <AstronautRocket startPosition="left-top" delay={0} duration={25} />
-      <AstronautRocket startPosition="left-middle" delay={5} duration={30} />
-      <AstronautRocket startPosition="left-bottom" delay={10} duration={28} />
-      <AstronautRocket startPosition="right-top" delay={15} duration={26} />
-      <AstronautRocket startPosition="right-bottom" delay={20} duration={32} />
+      {/* Flying astronaut rockets - 2 small rockets crossing the screen */}
+      <AstronautRocket startPosition="left-top" delay={0} duration={20} />
+      <AstronautRocket startPosition="right-bottom" delay={10} duration={25} />
       
       {/* Content */}
       <div className="relative z-10">
